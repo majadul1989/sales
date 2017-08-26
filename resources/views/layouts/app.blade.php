@@ -35,29 +35,31 @@
     <link href="{{ asset('/css/bootstrap/css/bootstrap-select.css') }}" rel="stylesheet">
 </head>
 <body class="success">
-    <div id="app">
+    <div id="app" class="warpper">
         <nav class="navbar navbar-default navbar-static-top padding margin">
             <div class="container-fluid">
                 <div class="navbar-header">
+                    <li> 
+                    <span class="btn btn-success menu hidden-lg hidden-md visible-sm visible-xs"><i class="glyphicon glyphicon-list"></i>  <span class="menuType">Menu</span></span>
 
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-
-                    <!-- Branding Image -->
+                    </li>
+                    <li>
                     <a class="navbar-brand" href="{{url('/home')}}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
+                    </li>    
+                    <!-- Collapsed Hamburger -->
+                    <button type="button" class="navbar-toggle collapsed glyphicon glyphicon-user" data-toggle="collapse" data-target="#app-navbar-collapse">
+                       
+                    </button>
+
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                       <!-- Branding Image -->
+                      
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -95,6 +97,29 @@
     </div>
     <script type="text/javascript" src="{{ asset('/css/bootstrap/js/bootstrap-datepicker.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/css/bootstrap/js/bootstrapValidator.js') }}"></script>
+
+<script type="text/javascript">
+    // Canvas Menu functions here Right
+                $(document).ready(function(){
+                        var menu = "close";
+                    $(".menu").click(function(){            
+                        if (menu == "close") {
+                            $(".canvasMenuRight").css('transform','translate(0, 0)');
+                            $(".warpper").css('transform','translate(70%, 0)');
+                            $(".warpper").css('padding','0');
+                            $(".funy").removeClass("row");
+                            menu = "open";
+                        }else{
+                            $(".canvasMenuRight").css('transform','translate(100%, 0)');
+                            $(".warpper").css('transform','translate(0, 0)');
+                            $(".warpper").css('padding','0 15px');
+                            $(".funy").addClass("row");
+                            menu = "close";
+                        }
+                    });
+                });
+</script>
+
 
 </body>
 </html>
