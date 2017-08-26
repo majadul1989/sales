@@ -27,6 +27,7 @@
 
     {{-- custom style --}}
     <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/responsive.css') }}" rel="stylesheet">
     <!-- font-Awesome -->
     <link href="{{ asset('/css/fontAwasme/css/font-awesome.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/bootstrap/css/bootstrap-theme.min.css') }}" rel="stylesheet">
@@ -35,14 +36,25 @@
     <link href="{{ asset('/css/bootstrap/css/bootstrap-select.css') }}" rel="stylesheet">
 </head>
 <body class="success">
+<div class="canvasMenuRight hidden-md hidden-lg">
+<!-- <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 canvasMenuRight hidden-md hidden-lg"> -->
+    <ul>
+        <li>Dashboard mobile</li>
+        <li>Profile</li>
+        <li>Settings</li>
+        <li>Logout</li>
+    </ul>   
+    </div><!-- canvasLeft -->
     <div id="app" class="warpper">
         <nav class="navbar navbar-default navbar-static-top padding margin">
             <div class="container-fluid">
                 <div class="navbar-header">
+                @if (!Auth::guest())
                     <li> 
-                    <span class="btn btn-success menu hidden-lg hidden-md visible-sm visible-xs"><i class="glyphicon glyphicon-list"></i>  <span class="menuType">Menu</span></span>
+                    <span class="btn btn-success menuToggle hidden-lg hidden-md visible-sm visible-xs"><i class="glyphicon glyphicon-list"></i>  <span class="menuType">Menu</span></span>
 
                     </li>
+                @endif
                     <li>
                     <a class="navbar-brand" href="{{url('/home')}}">
                         {{ config('app.name', 'Laravel') }}
@@ -99,21 +111,38 @@
     <script type="text/javascript" src="{{ asset('/css/bootstrap/js/bootstrapValidator.js') }}"></script>
 
 <script type="text/javascript">
-    // Canvas Menu functions here Right
+    // // Canvas Menu functions here Right
+    //             $(document).ready(function(){
+    //                     var menu = "close";
+    //                 $(".menuToggle").click(function(){         
+    //                     if (menu == "close") {
+    //                         $(".canvasMenuLeft").css('transform','translate(0, 0)');
+    //                         $(".warpper").css('transform','translate(70%, 0)');
+    //                         $(".warpper").css('padding','0');
+    //                         $(".funy").removeClass("row");
+    //                         menu = "open";
+
+    //                     }else{
+    //                         $(".canvasMenuLeft").css('transform','translate(-100%, 0)');
+    //                         $(".warpper").css('transform','translate(0, 0)');
+    //                         $(".warpper").css('padding','0');
+    //                         $(".funy").addClass("row");
+    //                         menu = "close";
+    //                     }
+    //                 });
+    //             });
                 $(document).ready(function(){
                         var menu = "close";
-                    $(".menu").click(function(){            
+                    $(".menuToggle").click(function(){            
                         if (menu == "close") {
-                            $(".canvasMenuRight").css('transform','translate(0, 0)');
+                            $(".canvasMenuRight").css('transform','translate(0%, 0)');
                             $(".warpper").css('transform','translate(70%, 0)');
                             $(".warpper").css('padding','0');
-                            $(".funy").removeClass("row");
                             menu = "open";
                         }else{
-                            $(".canvasMenuRight").css('transform','translate(100%, 0)');
+                            $(".canvasMenuRight").css('transform','translate(-100%, 0)');
                             $(".warpper").css('transform','translate(0, 0)');
-                            $(".warpper").css('padding','0 15px');
-                            $(".funy").addClass("row");
+                            $(".warpper").css('padding','0');
                             menu = "close";
                         }
                     });

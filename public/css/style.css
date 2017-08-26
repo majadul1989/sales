@@ -35,24 +35,24 @@
     list-style: outside none none;
     margin-left: 10px;
 }
-.menu {
+.menuToggle {
     margin-right: 2px;
     margin-top: 8px;
 }
 
 .warpper {
-    padding: 0;
-    margin: 0;
 }
 
-.canvasMenuLeft {
+
+
+.canvasMenuRight {
     background: #000 none repeat scroll 0 0;
-    height: 100%;
-    position: fixed;
-    width: 288px;
     color: #fff;
+    height: 100%;
     left: 0;
- 	transform: translate(-100%, 0);
-	/*transition: all .5s ease 0s;*/
-	overflow: auto;
+    overflow: auto;
+    position: fixed;
+    transform: translate(-100%, 0px);
+    width: 70%;
+    z-index: 3333;
 }

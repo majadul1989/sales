@@ -1,0 +1,7 @@
+/*responsive.css*/
+
+@media all and (min-width: 770px) {
+.warpper {
+    transform: translate(0px, 0px) !important;
+}
+}
